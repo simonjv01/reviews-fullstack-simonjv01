@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="ie=edge" http-equiv="X-UA-Compatible">
+    <title>Categories</title>
+    <link href="./css/stylesheet.css" rel="stylesheet">
+</head>
+
+<body>
+<h1>Review Categories</h1>
+
+<h2 th:each="category:${categories}"><a th:href="@{'/categories/'+ ${category}}"
+                                    th:text="${category}">Review Categories</a>
+</h2>
+
+
+</body>
+
+</html>
