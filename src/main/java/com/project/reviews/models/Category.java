@@ -35,7 +35,9 @@ public class Category {
 
     }
 
-
+    public String getType() {
+        return type;
+    }
 
     public Collection<Review> getReviews() {
         return reviews;

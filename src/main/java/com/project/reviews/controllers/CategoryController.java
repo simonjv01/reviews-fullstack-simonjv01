@@ -23,7 +23,7 @@ public class CategoryController {
         return "categoriesView";
     }
 
-    @GetMapping("/categories/{type}")
+    @RequestMapping("/categories/{type}")
     public String displaysSingleCategory(@PathVariable String type, Model model){
         Category retrievedCategory = categoryRepo.findCategoryByType(type);
         model.addAttribute("category", retrievedCategory);

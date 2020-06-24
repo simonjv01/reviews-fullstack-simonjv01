@@ -12,8 +12,8 @@
 <body>
 <h1>Review Categories</h1>
 
-<h2 th:each="category:${categories}"><a th:href="@{'/categories/'+ ${category}}"
-                                    th:text="${category}">Review Categories</a>
+<h2 th:each="category:${categories}"><a th:href="@{'/categories/'+ ${category.type}}"
+                                    th:text="${category.type}">Review Categories</a>
 </h2>
 
 
