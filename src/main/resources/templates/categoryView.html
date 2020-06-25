@@ -1,12 +1,34 @@
 <!DOCTYPE html>
-<html   xmlns="http://www.w3.org/1999/xhtml"
-        xmlns:th="http://www.thymeleaf.org">
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"  >
 <head>
     <meta charset="UTF-8">
-    <title th:text="${category.reviews}"></title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="ie=edge" http-equiv="X-UA-Compatible">
+    <title th:text="${category.type}">Type</title>
+    <link href="./css/style.css" rel="stylesheet">
+    <link href="./css/layout.css" rel="stylesheet">
+
+
 </head>
 <body>
+<header class="header">
+    <h1 class="header__title">Welcome to the Reviews Site</h1>
+    <h2 th:text="${category.type}">Category Type</h2>
+</header>
+<section class="review-list">
+    <h2 class="review-list__heading">Here is a list of our reviews:</h2>
+    <nav class="review-list-nav">
+        <ul class="review-list-links">
+            <li class="review-list-links__review" th:each="review:${category.reviews}">
+                <a class="book-list-links__link" th:href="@{'/reviews/'+ ${review.id}}"
+                   th:text="${review.title}">Review Title</a>
+            </li>
 
-
+        </ul>
+    </nav>
+    <a class="nav__home" href="/categories">back to categories</a>
+    <h1 th:text="${category.type}"></h1>
+</section>
 </body>
 </html>

@@ -1,8 +1,8 @@
-package com.project.reviews.controllers;
+package com.reviewapp.reviewapp.controllers;
 
 
-import com.project.reviews.models.Category;
-import com.project.reviews.repositories.CategoryRepository;
+import com.reviewapp.reviewapp.Category;
+import com.reviewapp.reviewapp.CategoryRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,16 +18,17 @@ public class CategoryController {
     private CategoryRepository categoryRepo;
 
     @RequestMapping({"/categories", "/", ""})
-    public String displayCampuses(Model model){
+    public String displayCategories(Model model){
         model.addAttribute("categories", categoryRepo.findAll());
         return "categoriesView";
     }
 
-    @RequestMapping("/categories/{type}")
-    public String displaysSingleCategory(@PathVariable String type, Model model){
+    @GetMapping("/categories/{type}")
+    public String displaySingleCategory(@PathVariable String type, Model model){
         Category retrievedCategory = categoryRepo.findCategoryByType(type);
         model.addAttribute("category", retrievedCategory);
         return "categoryView";
     }
+
 
 }

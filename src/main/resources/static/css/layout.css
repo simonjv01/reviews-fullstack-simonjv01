@@ -1,0 +1,16 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+
+}
+
+.review-list {
+    padding-left: 10px;
+}
+
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

@@ -1,10 +1,8 @@
-package com.project.reviews.repositories;
+package com.reviewapp.reviewapp;
 
-import com.project.reviews.models.Category;
+
 import org.springframework.data.repository.CrudRepository;
 
 public interface CategoryRepository extends CrudRepository<Category, Long> {
-
-
     Category findCategoryByType(String type);
 }

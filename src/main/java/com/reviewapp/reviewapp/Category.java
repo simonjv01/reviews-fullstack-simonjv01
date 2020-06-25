@@ -1,6 +1,4 @@
-package com.project.reviews.models;
-
-
+package com.reviewapp.reviewapp;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -13,7 +11,6 @@ import java.util.Objects;
 @Entity
 public class Category {
 
-
     @Id
     @GeneratedValue
     private Long id;
@@ -21,23 +18,24 @@ public class Category {
     @OneToMany(mappedBy = "category")
     private Collection<Review> reviews;
 
+
+
     public Long getId() {
         return id;
-    }
-
-    //default no args constructor for jpa
-    public Category(){
-    }
-
-
-    public Category(String type){
-        this.type = type;
-
     }
 
     public String getType() {
         return type;
     }
+
+    public Category(){}
+
+    public Category(String type) {
+        this.type = type;
+
+    }
+
+
 
     public Collection<Review> getReviews() {
         return reviews;

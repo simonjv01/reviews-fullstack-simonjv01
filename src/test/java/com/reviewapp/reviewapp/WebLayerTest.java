@@ -1,9 +1,5 @@
-package com.project.reviews;
+package com.reviewapp.reviewapp;
 
-
-import com.project.reviews.models.Category;
-import com.project.reviews.repositories.CategoryRepository;
-import com.project.reviews.repositories.ReviewRepository;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,8 +26,9 @@ public class WebLayerTest {
     @Autowired
     private MockMvc mockMvc;
 
+
     @Test
-    public void categoryShouldBeOkAndReturnCategoriesViewWithCategoryModelViewAttribute() throws Exception {
+    public void categoriesShouldBeOkAndReturnCategoriesViewWithCategoriesModelAttribute() throws Exception{
         mockMvc.perform(get("/categories"))
                 .andDo(print())
                 .andExpect(status().isOk())
@@ -40,7 +37,7 @@ public class WebLayerTest {
     }
 
     @Test
-    public void reviewsShouldBeOkAndReturnReviewsViewWithReviewModelViewAttribute() throws Exception {
+    public void reviewsShouldBeOkAndReturnReviewsViewWithReviewsModelAttribute() throws Exception{
         mockMvc.perform(get("/reviews"))
                 .andDo(print())
                 .andExpect(status().isOk())
@@ -56,5 +53,20 @@ public class WebLayerTest {
                 .andExpect(status().isOk())
                 .andExpect(view().name("categoryView"))
                 .andExpect(model().attributeExists("category"));
+
     }
+
+    @Test
+    public void shouldBeOkForASingleReviewEndpointWithReviewViewAndReviewModelAttribute() throws Exception{
+        Category testCategory = new Category("Technology");
+        Review testReview = new Review("Dell","laptop",testCategory,"travel","dell.jpg");
+        when(reviewRepo.findById(1L)).thenReturn(java.util.Optional.of(testReview));
+        mockMvc.perform(get("/reviews/1"))
+                .andExpect(status().isOk())
+                .andExpect(view().name("reviewView"))
+                .andExpect(model().attributeExists("review"));
+
+    }
+
+
 }

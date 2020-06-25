@@ -5,15 +5,17 @@
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="ie=edge" http-equiv="X-UA-Compatible">
-    <title>Categories</title>
-    <link href="./css/stylesheet.css" rel="stylesheet">
+    <link href="./css/style.css" rel="stylesheet">
+    <link href="./css/layout.css" rel="stylesheet">
+
+    <title>Review Categories</title>
 </head>
 
 <body>
 <h1>Review Categories</h1>
 
 <h2 th:each="category:${categories}"><a th:href="@{'/categories/'+ ${category.type}}"
-                                    th:text="${category.type}">Review Categories</a>
+                                    th:text="${category.type}">Category</a>
 </h2>
 
 

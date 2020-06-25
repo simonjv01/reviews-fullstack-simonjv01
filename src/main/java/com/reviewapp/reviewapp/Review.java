@@ -1,10 +1,7 @@
-package com.project.reviews.models;
+package com.reviewapp.reviewapp;
 
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
@@ -13,51 +10,58 @@ public class Review {
     @Id
     @GeneratedValue
     private Long id;
-    String title;
-    private String imageUrl;
+    private String title;
+    private String description;
     @ManyToOne
     private Category category;
-    private String content;
     private String synopsis;
+    private String imageUrl;
 
 
-    public Long getId() { return id; }
+
+
+
+    public Long getId() {
+        return id;
+    }
 
 
     public String getTitle() {
         return title;
     }
 
-    public String getImageUrl() {
-        return imageUrl;
+    public String getDescription() {
+        return description;
     }
 
     public Category getCategory() {
         return category;
     }
 
-    public String getContent() {
-        return content;
-    }
-
     public String getSynopsis() {
         return synopsis;
     }
 
-    public Review(){
+    public String getImageUrl() {
+        return imageUrl;
     }
 
-
-
-
-
-    public Review(String title, String  imageUrl, Category category,String content,  String synopsis) {
+    public Review(String title, String description, Category category, String synopsis, String imageUrl) {
         this.title = title;
-        this.imageUrl = imageUrl;
+        this.description = description;
         this.category = category;
-        this.content = content;
         this.synopsis = synopsis;
+        this.imageUrl = imageUrl;
+
+
     }
+
+
+
+    public Review(){
+
+    }
+
 
     @Override
     public boolean equals(Object o) {
